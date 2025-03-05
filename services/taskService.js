@@ -90,7 +90,7 @@ module.exports = {
               }
 
               const task = taskCheck.rows[0];
-              if (task.assigned_to != req.user.id && task.created_by != req.user.id && req.user.role != "admin") { 
+              if (task.assigned_to != req.user.userId && task.created_by != req.user.userId && req.user.role != "admin") { 
                 return res.status(403).json({ error: "Not authorized to update this task" });
               }
 
@@ -135,7 +135,7 @@ module.exports = {
             }
 
             
-            if (task.rows[0].id != req.user.created_by && task.rows[0].id != req.user.assigned_to && req.user.role != "admin") {
+            if (task.rows[0].createdBy != req.user.userId && task.rows[0].assigned_to != req.user.userId && req.user.role != "admin") {
                 return res.status(403).json({ error: "You are not authorized to delete this task" });
             }
 

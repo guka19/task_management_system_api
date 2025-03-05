@@ -37,6 +37,6 @@ app.get("/tasks/:id", auth, taskService.getById);
 app.post("/tasks", auth, taskService.createTask);
 app.put("/tasks/updateTaskStatus/:id/:status", auth, taskService.changeTaskStatus);
 app.put("/tasks/:id", auth, taskService.updateTask);
-app.delete("/tasks/deleteTask/:id", auth, taskService.deleteTask);
+app.delete("/tasks/:id", auth, taskService.deleteTask);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
